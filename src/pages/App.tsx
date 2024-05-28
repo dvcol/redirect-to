@@ -17,7 +17,7 @@ function App() {
 	onMount(() => {
 		const { to, ...otherParams } = search;
 		const { id } = params;
-		const redirect = id ?? to;
+		const redirect = id || to;
 		if (!redirect) {
 			console.warn('No redirection found.', { search: { ...search }, params: { ...params } });
 			return;
