@@ -1,0 +1,19 @@
+name: Build
+description: Install and build the repo
+
+inputs:
+  script:
+    description: Build script
+    default: build
+
+runs:
+  using: composite
+  steps:
+    - name: 🧱 Install
+      uses: ./.github/actions/install
+
+    - name: 🚧 Build sources
+      shell: bash
+      run: |
+        # =================  🚧 Build  =================
+        pnpm run ${{ inputs.script }}
